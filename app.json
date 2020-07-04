@@ -16,6 +16,20 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyBOPOEPzvgmRC2di-qkeW0x0v-eDtxG2-o"
+        }
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
     "ios": {
       "supportsTablet": true
     },
