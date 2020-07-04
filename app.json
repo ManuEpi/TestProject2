@@ -17,6 +17,8 @@
       "**/*"
     ],
     "android": {
+      "package": "com.testproject2",
+      "versionCode": 1,
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyBOPOEPzvgmRC2di-qkeW0x0v-eDtxG2-o"
