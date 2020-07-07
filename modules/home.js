@@ -30,7 +30,7 @@ function Home(props) {
         setTimeout(() => {
             mapRef.current.animateToRegion(newRegion, 500)
         }, 10);
-        getAllRestaurants(newRegion.latitude, newRegion.longitude)
+        await getAllRestaurants(newRegion.latitude, newRegion.longitude)
     }
 
     useEffect(() => {
@@ -45,10 +45,19 @@ function Home(props) {
      * @returns {Promise<void>}
      */
     async function getAllRestaurants(latitude, longitude) {
-        getRestaurants(latitude, longitude).then(response => {
+
+        try {
+            const restaurants = await getRestaurants(latitude, longitude)
+            if (restaurants !== undefined && restaurants !== null
+                && restaurants.data !== undefined && restaurants.data !== null
+                && restaurants.data.statusCode !== undefined && restaurants.data.statusCode !== null && restaurants.data.statusCode === 200)
+                setRestaurants(restaurants.data.restaurants);
+        } catch (err) {
+            console.log('Error :', err.toString());
+        }
+        /*getRestaurants(latitude, longitude).then(response => {
             if (response !== undefined && response !== null && response.data["statusCode"] === 200)
-                setRestaurants(response.data["restaurants"]);
-        })
+        })*/
     }
 
     /**
